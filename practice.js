@@ -21,15 +21,15 @@
 // Известно, что X кг шоколадных конфет стоит A рублей, а Y кг ирисок стоит B рублей.
 //     Определить, сколько стоит 1 кг шоколадных конфет, 1 кг ирисок, а также во сколько раз шоколадные конфеты дороже ирисок.
 
-const costSweets = function (X, A, Y, B){
-    const oneKilogramChocolates = A / X;
-    const oneKilogramToffee = B / Y;
-    const difference = A - B;
-
-    return `Шоколадные конфеты дороже ирисок на ${difference} рубля`;
-}
-
-console.log(costSweets(3, 15, 5, 12));
+// const costSweets = function (X, A, Y, B){
+//     const oneKilogramChocolates = A / X;
+//     const oneKilogramToffee = B / Y;
+//     const difference = A - B;
+//
+//     return `Шоколадные конфеты дороже ирисок на ${difference} рубля`;
+// }
+//
+// console.log(costSweets(3, 15, 5, 12));
 
 // # 2)Арифметические операции
 // Все входные и выходные данные в заданиях этой группы являются целыми числами.
@@ -39,6 +39,15 @@ console.log(costSweets(3, 15, 5, 12));
 // ## Integer21
 // С начала суток прошло N секунд (N — целое).
 // Найти количество секунд, прошедших с начала последней минуты.
+
+const quantitySeconds = (seconds) => {
+    const s = seconds / 60;
+    const w = s - Math.floor(s);
+    return `С начало последней минуты прошло ${w.toFixed(3)} секунд`;
+}
+
+console.log(quantitySeconds(15189));
+
 //
 // ## Integer30
 // Дан номер некоторого года (целое положительное число).
