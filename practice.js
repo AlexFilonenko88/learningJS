@@ -6,16 +6,16 @@
 // это вводные данные их можно рандомно задать, через Math.random(), либо самому ввести.
 //     а на выходе возвращай пару значений (можешь в массиве)
 
-// const costSweets = function (X, A, Y) {
-//     //1
-//     const oneKilogram = A / X;
-//     return oneKilogram * Y;
-//
-//     //2
-//     //return (A / X) * Y;
-// }
-//
-// console.log(costSweets(5, 10, 15));
+const costSweets = function (X, A, Y) {
+    //1
+    const oneKilogram = A / X;
+    return oneKilogram * Y;
+
+    //2
+    //return (A / X) * Y;
+}
+
+console.log(costSweets(Math.round(Math.random() * 10), 10, 15));
 
 // ## Begin34
 // Известно, что X кг шоколадных конфет стоит A рублей, а Y кг ирисок стоит B рублей.
@@ -143,9 +143,33 @@ console.log(integer(-6));
 //     ## for17
 // Дано вещественное число A и целое число N (>0).
 // Используя один цикл, найти сумму "1 + A + A^2 + A^3 + ... + A^N"
-//
+
+const for17 = (A, N) => {
+    let sum = 0
+    for(let i = 0; i <= N; i++) {
+        //sum = sum + Math.pow(A, i)
+
+        if(i === 0) {
+            sum++
+            continue
+        }
+
+        if(i === 1) {
+            sum = sum + A
+            continue
+        }
+        let temp = A
+        for(let j = 0; j < i; j++){
+            temp = temp * temp
+        }
+        sum += temp
+    }
+}
+
+console.log(foo(2, 10));
+
 // ## for20
-// Дано целое число N (> 0).
+// Дано целое число N (> 0). факториал
 // Используя один цикл, найти сумму "1! + 2! + 3! + ... + N!"
 //
 // ## for21
