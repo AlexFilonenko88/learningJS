@@ -40,13 +40,13 @@
 // С начала суток прошло N секунд (N — целое).
 // Найти количество секунд, прошедших с начала последней минуты.
 
-const quantitySeconds = (seconds) => {
-    const s = seconds / 60;
-    const w = s - Math.floor(s);
-    return `С начало последней минуты прошло ${w.toFixed(3)} секунд`;
-}
-
-console.log(quantitySeconds(15189));
+// const quantitySeconds = (seconds) => {
+//     const s = seconds / 60;
+//     const w = s - Math.floor(s);
+//     return `С начало последней минуты прошло ${w.toFixed(3)} секунд`;
+// }
+//
+// console.log(quantitySeconds(15189));
 
 //
 // ## Integer30
@@ -65,6 +65,24 @@ console.log(quantitySeconds(15189));
 // Даны целые числа a, b, c, являющиеся сторонами некоторого треугольника.
 //     Проверить истинность высказывания: «Треугольник со сторонами a, b, c является равнобедренным».
 //
+// если a === b || a === c  то треугольник равнобедренный
+
+const triangleIsosceles = function(a, b, c) {
+    if(a === b){
+        return 'Треугольник равнобедренный';
+    }
+    if(b === c){
+        return 'Треугольник равнобедренный';
+    }
+    if (a === c) {
+        return 'Треугольник равнобедренный';
+    }
+
+    return 'Теугольник не равнобедренный'
+}
+
+console.log(triangleIsosceles(2, 6, 5));
+
 // ## Boolean33
 // Даны целые числа a, b, c.
 //     Проверить истинность высказывания: «Существует треугольник со сторонами a, b, c».
