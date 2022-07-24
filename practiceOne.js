@@ -15,21 +15,21 @@ const costSweets = function (X, A, Y) {
     //return (A / X) * Y;
 }
 
-console.log(costSweets(Math.round(Math.random() * 10), 10, 15));
+// console.log(costSweets(Math.round(Math.random() * 10), 10, 15));
 
 // ## Begin34
 // Известно, что X кг шоколадных конфет стоит A рублей, а Y кг ирисок стоит B рублей.
 //     Определить, сколько стоит 1 кг шоколадных конфет, 1 кг ирисок, а также во сколько раз шоколадные конфеты дороже ирисок.
 
-// const costSweets = function (X, A, Y, B){
-//     const oneKilogramChocolates = A / X;
-//     const oneKilogramToffee = B / Y;
-//     const difference = A - B;
-//
-//     return `Шоколадные конфеты дороже ирисок на ${difference} рубля`;
-// }
-//
-// console.log(costSweets(3, 15, 5, 12));
+const costSweetsOne = function (X, A, Y, B){
+    const oneKilogramChocolates = A / X;
+    const oneKilogramToffee = B / Y;
+    const difference = A - B;
+
+    return `Шоколадные конфеты дороже ирисок на ${difference} рубля`;
+}
+
+// console.log(costSweetsOne(3, 15, 5, 12));
 
 // # 2)Арифметические операции
 // Все входные и выходные данные в заданиях этой группы являются целыми числами.
@@ -40,12 +40,12 @@ console.log(costSweets(Math.round(Math.random() * 10), 10, 15));
 // С начала суток прошло N секунд (N — целое).
 // Найти количество секунд, прошедших с начала последней минуты.
 
-// const quantitySeconds = (seconds) => {
-//     const s = seconds / 60;
-//     const w = s - Math.floor(s);
-//     return `С начало последней минуты прошло ${w.toFixed(3)} секунд`;
-// }
-//
+const quantitySeconds = (seconds) => {
+    const s = seconds / 60;
+    const w = s - Math.floor(s);
+    return `С начало последней минуты прошло ${w.toFixed(3)} секунд`;
+}
+
 // console.log(quantitySeconds(15189));
 
 //
@@ -67,33 +67,33 @@ console.log(costSweets(Math.round(Math.random() * 10), 10, 15));
 //
 // если a === b || a === c  то треугольник равнобедренный
 
-// const triangleIsosceles = function(a, b, c) {
-//     if(a === b){
-//         return 'Треугольник равнобедренный';
-//     }
-//     if(b === c){
-//         return 'Треугольник равнобедренный';
-//     }
-//     if (a === c) {
-//         return 'Треугольник равнобедренный';
-//     }
-//
-//     return 'Теугольник не равнобедренный'
-// }
-//
+const triangleIsosceles = function(a, b, c) {
+    if(a === b){
+        return 'Треугольник равнобедренный';
+    }
+    if(b === c){
+        return 'Треугольник равнобедренный';
+    }
+    if (a === c) {
+        return 'Треугольник равнобедренный';
+    }
+
+    return 'Теугольник не равнобедренный'
+}
+
 // console.log(triangleIsosceles(2, 6, 5));
 
 // ## Boolean33
 // Даны целые числа a, b, c.
 //     Проверить истинность высказывания: «Существует треугольник со сторонами a, b, c».
 
-// const triangle = function (a, b, c){
-//     if(a === 0 || b === 0 || c === 0){
-//         return 'Треугольник не существует';
-//     }
-//
-//     return 'Треугольник существует';
-// };
+const triangle = function (a, b, c){
+    if(a === 0 || b === 0 || c === 0){
+        return 'Треугольник не существует';
+    }
+
+    return 'Треугольник существует';
+};
 //
 // console.log(triangle(2, 0, 5));
 
@@ -110,14 +110,14 @@ console.log(costSweets(Math.round(Math.random() * 10), 10, 15));
 //     и вывести эту точку и ее расстояние от точки A.
 // если B меньше чем C, то B ближе к А
 
-// const distance = function (A, B, C){
-//     if(B < C){
-//         return `Расстояние до точки А ${B}`;
-//     }
-//
-//     return `Расстояние до точки А ${C}`;
-// }
-//
+const distance = function (A, B, C){
+    if(B < C){
+        return `Расстояние до точки А ${B}`;
+    }
+
+    return `Расстояние до точки А ${C}`;
+}
+
 // console.log(distance(2, 10, 5));
 
 // ## if29
@@ -136,7 +136,7 @@ const integer = function (number) {
     }
 }
 
-console.log(integer(-6));
+// console.log(integer(-6));
 
 // # 5) Цикл с параметром (for)
 //
@@ -146,27 +146,29 @@ console.log(integer(-6));
 
 const for17 = (A, N) => {
     let sum = 0
-    for(let i = 0; i <= N; i++) {
-        //sum = sum + Math.pow(A, i)
+    for(let i = 0; i <= N; i += 1) {
+        // sum +=  Math.pow(A, i)
 
-        if(i === 0) {
-            sum++
-            continue
-        }
-
-        if(i === 1) {
-            sum = sum + A
-            continue
-        }
-        let temp = A
-        for(let j = 0; j < i; j++){
-            temp = temp * temp
-        }
-        sum += temp
+        // if(i === 0) {
+        //     sum += 1
+        //     continue
+        // }
+        //
+        // if(i === 1) {
+        //     sum += A
+        //     continue
+        // }
+        // let temp = A
+        // for(let j = 0; j < i; j += 1){
+        //     temp = temp * temp
+        // }
+        // sum += temp
     }
+
+    return sum;
 }
 
-console.log(foo(2, 10));
+console.log(for17(2, 10));
 
 // ## for20
 // Дано целое число N (> 0). факториал
