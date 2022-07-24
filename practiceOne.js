@@ -147,7 +147,9 @@ const integer = function (number) {
 const for17 = (A, N) => {
     let sum = 0
     for(let i = 0; i <= N; i += 1) {
-        // sum +=  Math.pow(A, i)
+        sum +=  Math.pow(A, i);
+
+        // sum += A ** i;
 
         // if(i === 0) {
         //     sum += 1
@@ -168,23 +170,45 @@ const for17 = (A, N) => {
     return sum;
 }
 
-console.log(for17(2, 10));
+// console.log(for17(2, 10));
 
 // ## for20
 // Дано целое число N (> 0). факториал
 // Используя один цикл, найти сумму "1! + 2! + 3! + ... + N!"
-//
+
+function sumNumbers(number){
+    let sum = 1;
+
+    for (let i = 0; i < number; i +=1){
+        sum *= i + 1;
+    }
+
+    return sum;
+}
+// console.log(sumNumbers(5));
+
 // ## for21
 // Дано целое число N (> 0).
 // Используя один цикл, найти сумму "1 + 1/(1!) + 1/(2!) + 1/(3!) + ... + 1/(N!)"
 // (выражение N! — N–факториал — обозначает произведение всех целых чисел от 1 до N: "N! = 1·2·...·N").
 // Полученное число является приближенным значением константы e = exp(1).
-//
+
+function sumNumbers (number){
+    let sum = 0;
+
+    for(i = 0; i <= number; i += 1){
+        sum += i + i/(i+1);
+    }
+
+    return sum;
+};
+
+console.log(sumNumbers(5));
+
 // ## for22
 // Дано вещественное число X и целое число N (>0).
 // Найти значение выражения "1+X +X^2/(2!)+...+X^N/(N!)"
-//
-//
+
 // # 6) Цикл с условием
 //
 // ## while7
