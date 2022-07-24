@@ -187,6 +187,18 @@ function sumNumbers(number){
 }
 // console.log(sumNumbers(5));
 
+// Рекурсия !!!
+
+function factorial (n){
+    if(n <= 1){
+        return 1;
+    }
+
+    return n * factorial(n - 1);
+}
+
+// console.log(factorial(5));
+
 // ## for21
 // Дано целое число N (> 0).
 // Используя один цикл, найти сумму "1 + 1/(1!) + 1/(2!) + 1/(3!) + ... + 1/(N!)"
@@ -203,7 +215,7 @@ function sumNumbers (number){
     return sum;
 };
 
-console.log(sumNumbers(5));
+// console.log(sumNumbers(5));
 
 // ## for22
 // Дано вещественное число X и целое число N (>0).
