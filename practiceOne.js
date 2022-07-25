@@ -13,9 +13,15 @@ const costSweets = function (X, A, Y) {
 
     //2
     //return (A / X) * Y;
+
+    // 3 рекурсия
+
+    if( Y >= 10) return;
+
+    costSweets(Y + 1);
 }
 
-// console.log(costSweets(Math.round(Math.random() * 10), 10, 15));
+// console.log(costSweets(Math.round(Math.random() * 10), 10, 5));
 
 // ## Begin34
 // Известно, что X кг шоколадных конфет стоит A рублей, а Y кг ирисок стоит B рублей.
@@ -253,17 +259,41 @@ function while7 (N){
     return K;
 }
 
-console.log(while7(555));
+// console.log(while7(555));
 
 // ## while9
 // Дано целое число N (>1).
 // Найти наименьшее целое число K, при котором выполняется неравенство: 3^K > N.
-//
+
+function while9 (N){
+    let K = 1;
+
+    while(3 ** K < N){
+        K += 1;
+    }
+
+    return K;
+}
+
+console.log(while9(15));
+
 // ## while17
 // Дано целое число N (>0).
 // Используя операции деления нацело и взятия остатка от деления,
 //     вывести все его цифры, начиная с самой правой (разряда единиц)
-//
+
+function while17 (N){
+    let K = 1;
+
+    while(3 ** K < N){
+        K += 1;
+    }
+
+    return K;
+}
+
+// console.log(while7(15));
+
 // ## while24
 // Дано целое число N (> 1).
 // Проверить, является ли число N числом Фибоначчи. Если является, то
@@ -346,12 +376,101 @@ function caseOne (number) {
 
 // Case4. Дан номер месяца — целое число в диапазоне 1–12 (1 — январь, 2 — февраль и т. д.).
 // Определить количество дней в этом месяце для невисокосного года.
-//
+
+function Case4 (number){
+    switch (number){
+        case 1:
+            console.log('30 дней');
+            break;
+        case 2:
+            console.log('Высокосный год');
+            break;
+        case 3:
+            console.log('31 дней');
+            break;
+        case 4:
+            console.log('30 дней');
+            break;
+        case 5:
+            console.log('31 дней');
+            break;
+        case 6:
+            console.log('30 дней');
+            break;
+        case 7:
+            console.log('31 дней');
+            break;
+        case 8:
+            console.log('30 дней');
+            break;
+        case 9:
+            console.log('31 дней');
+            break;
+        case 10:
+            console.log('30 дней');
+            break;
+        case 11:
+            console.log('31 дней');
+            break;
+        case 12:
+            console.log('30 дней');
+            break;
+
+        default:
+            return "Введите правильную цифру"
+    }
+}
+
+// console.log(Case4(2));
+
+
 // Case5. Арифметические действия над числами пронумерованы следующим образом:
 // 1 — сложение, 2 — вычитание, 3 — умножение, 4 — деление.
 // Дан номер действия N (целое число в диапазоне 1–4) и вещественные числа A и B (В не равно 0).
 // Выполнить над числами указанное действие и вывести результат.
-//
+
+function Case5 (number){
+    const A = 1;
+    const B = 2;
+
+    switch (number){
+        case 1:
+            return A + B;
+        case 2:
+            return A - B;
+        case 3:
+            return A * B;
+        case 4:
+            return A / B;
+
+        default:
+            return 'Введите привильное число'
+    }
+}
+
+// console.log(Case5(6));
+
 //Case6. Единицы длины пронумерованы следующим образом: 1 — дециметр, 2 — километр, 3 — метр, 4 — миллиметр, 5 — сантиметр.
 // Дан номер единицы длины (целое число в диапазоне 1–5)
 // и длина отрезка в этих единицах (вещественное число). Найти длину отрезка в метрах.
+
+function Case6 (number) {
+
+    switch (number) {
+        case 1:
+            return number * 10;
+        case 2:
+            return number / 1000;
+        case 3:
+            return number;
+        case 4:
+            return number * 1000;
+        case 5:
+            return number * 100;
+
+        default:
+            return 'Введите правильное число';
+    }
+}
+
+// console.log(Case6(1));
