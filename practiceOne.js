@@ -275,7 +275,7 @@ function while9 (N){
     return K;
 }
 
-console.log(while9(15));
+// console.log(while9(15));
 
 // ## while17
 // Дано целое число N (>0).
@@ -311,12 +311,36 @@ function while17 (N){
 // Даны десять вещественных чисел.
 //     Найти их произведение.
 // [0,1,2,3,4,5,6,7,8,9]
-//
+
+function Series2 (array){
+    let composition = 1;
+
+    for (let i = 1; i <= array.length; i += 1){
+        composition *= i;
+    }
+
+    return composition;
+}
+
+// console.log(Series2([1,2,3,4,5,6,7,8,9]));
+
+
 // ## Series3
 // Даны десять вещественных чисел.
 //     Найти их среднее арифметическое.
-//
-//
+
+function Series3 (array){
+    let sum = 0;
+
+    for (let i = 0; i <= array.length; i += 1){
+        sum += i;
+    }
+
+    return sum / array.length;
+}
+
+// console.log(Series3([1,2,3,4,5,6,7,8,9]));
+
 // # 8) Функции
 //
 // ## Proc1
