@@ -187,20 +187,67 @@ function If19(array) {
     }
 }
 
-console.log(If19([1,1,3,1]));
+// console.log(If19([1,1,3,1]));
 
 // 4) Цикл с параметром (for)
 //     For1.
 //         Даны целые числа K и N (N > 0). Вывести N раз число K.
-//
+
+function For1(K, N){
+    for(let i = 0; i <= N; i ++){
+        console.log(K);
+    }
+};
+
+// console.log(For1(2, 3));
+
 //     For2.
 //     Даны два целых числа A и B (A < B). Вывести в порядке возрастания все целые числа, расположенные между A и B (включая сами числа A и B), а также количество N этих чисел.
-//
+
+function For2(A, B){
+    let array = [];
+
+    for(let i = A; i <= B; i ++){
+        console.log(i)
+        array.push(i);
+    }
+
+    return array.length;
+}
+
+// console.log(For2(1, 3));
+
 //     For3.
 //     Даны два целых числа A и B (A < B). Вывести в порядке убывания все целые числа, расположенные между A и B (не включая числа A и B), а также количество N этих чисел.
-//
+
+function For3 (A, B){
+    for (let i = A; i <= B; i++){
+        if(i !== A && i !== B){
+            console.log(i);
+        }
+    }
+}
+
+// console.log(For3(2,5));
+
 //     For4.
 //     Дано вещественное число — цена 1 кг конфет. Вывести стоимость 1, 2, ..., 10 кг конфет.
-//
+
+function For4 (price){
+    for(let i = 1; i <= 10; i++){
+        console.log(price * i);
+    }
+}
+
+// console.log(For4(2));
+
 //     For5 .
 //     Дано вещественное число — цена 1 кг конфет. Вывести стоимость 0.1, 0.2, ..., 1 кг конфет.
+
+function For5 (price){
+    for(let i = 0.1; i <= 1; i += 0.1){
+        console.log(price * i);
+    }
+}
+
+// console.log(For5(2));
