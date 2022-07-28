@@ -398,14 +398,14 @@ function Minmax2 (N){
     let array = [];
 
     for(let i of N) {
-        for (let j of Object.values(i)) {
-            console.log(i[j])
-            // return Object.keys(i)
-        }
+        let w = Object.values(i);
+
+        array.push(w[0] * w[1]);
     }
 
-
-    return array;
+    // return array;
+    // return Math.min(...array);
+    return Math.max(...array);
 }
 
 // console.log(Minmax2([{a: 4, b: 5},{a: 1, b: 7},{a: 1, b: 6},{a: 2, b: 2},{a: 1, b: 9}]));
