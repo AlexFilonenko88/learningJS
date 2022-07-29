@@ -145,9 +145,12 @@ const integer = function (number) {
 // Используя один цикл, найти сумму "1 + A + A^2 + A^3 + ... + A^N"
 
 const for17 = (A, N) => {
-    let sum = 0
+    let sum = 1, pow = 1
     for(let i = 0; i <= N; i += 1) {
-        sum +=  Math.pow(A, i);
+        pow = pow * A
+        sum = sum + pow
+
+        // sum +=  Math.pow(A, i);
 
         // sum += A ** i;
 
@@ -165,6 +168,9 @@ const for17 = (A, N) => {
         //     temp = temp * temp
         // }
         // sum += temp
+
+
+
     }
 
     return sum;
@@ -179,8 +185,8 @@ const for17 = (A, N) => {
 function sumNumbers(number){
     let sum = 1;
 
-    for (let i = 0; i < number; i +=1){
-        sum *= i + 1;
+    for (let i = 0; i <= number; i++){
+        sum *= i;
     }
 
     return sum;
@@ -208,7 +214,7 @@ function factorial (n){
 function sumNumbers (number){
     let sum = 0;
 
-    for(i = 0; i <= number; i += 1){
+    for(let i = 0; i <= number; i += 1){
         sum += i + i/(i+1);
     }
 
