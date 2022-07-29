@@ -13,9 +13,15 @@ const costSweets = function (X, A, Y) {
 
     //2
     //return (A / X) * Y;
+
+    // 3 рекурсия
+
+    if( Y >= 10) return;
+
+    costSweets(Y + 1);
 }
 
-// console.log(costSweets(Math.round(Math.random() * 10), 10, 15));
+// console.log(costSweets(Math.round(Math.random() * 10), 10, 5));
 
 // ## Begin34
 // Известно, что X кг шоколадных конфет стоит A рублей, а Y кг ирисок стоит B рублей.
@@ -227,21 +233,73 @@ function sumNumbers (number){
 // Дано вещественное число X и целое число N (>0).
 // Найти значение выражения "1+X +X^2/(2!)+...+X^N/(N!)"
 
+function for22 (X, N){
+    let sum = 1;
+    let factorial = 1;
+    let pow = 1;
+
+    for(let i = 1; i < N; i += 1){
+        pow *= X;
+        factorial *= i;
+        sum += X + pow / factorial;
+    }
+
+    return sum;
+}
+
+// console.log(for22(5, 3));
+
 // # 6) Цикл с условием
 //
 // ## while7
 // Дано целое число N (> 0).
 // Найти наименьшее целое положительное число K, квадрат которого превосходит N: K^2 > N
-//
+
+function while7 (N){
+    let K = 1;
+
+    while(Math.pow(K, 2)< N){
+        K += 1;
+    }
+
+    return K;
+}
+
+// console.log(while7(555));
+
 // ## while9
 // Дано целое число N (>1).
 // Найти наименьшее целое число K, при котором выполняется неравенство: 3^K > N.
-//
+
+function while9 (N){
+    let K = 1;
+
+    while(3 ** K < N){
+        K += 1;
+    }
+
+    return K;
+}
+
+// console.log(while9(15));
+
 // ## while17
 // Дано целое число N (>0).
 // Используя операции деления нацело и взятия остатка от деления,
 //     вывести все его цифры, начиная с самой правой (разряда единиц)
-//
+
+function while17 (N){
+    let K = 1;
+
+    while(3 ** K < N){
+        K += 1;
+    }
+
+    return K;
+}
+
+// console.log(while7(15));
+
 // ## while24
 // Дано целое число N (> 1).
 // Проверить, является ли число N числом Фибоначчи. Если является, то
@@ -258,22 +316,60 @@ function sumNumbers (number){
 // ## Series2
 // Даны десять вещественных чисел.
 //     Найти их произведение.
-//
+// [0,1,2,3,4,5,6,7,8,9]
+
+function Series2 (array){
+    let composition = 1;
+
+    for (let i = 1; i <= array.length; i += 1){
+        composition *= i;
+    }
+
+    return composition;
+}
+
+// console.log(Series2([1,2,3,4,5,6,7,8,9]));
+
+
 // ## Series3
 // Даны десять вещественных чисел.
 //     Найти их среднее арифметическое.
-//
-//
+
+function Series3 (array){
+    let sum = 0;
+
+    for (let i = 0; i <= array.length; i += 1){
+        sum += i;
+    }
+
+    return sum / array.length;
+}
+
+// console.log(Series3([1,2,3,4,5,6,7,8,9]));
+
 // # 8) Функции
 //
 // ## Proc1
 // Описать функцию PowerA3(A, B), вычисляющую третью степень числа A и возвращающую ее.
-//
+
+function Proc6 (A){
+    const B = A ** 3;
+
+    return B;
+}
+
+// console.log(Proc6(2))
+
 // ## Proc6
 // Описать функцию DigitCountSum(K, C, S), находящую количество C цифр целого положительного числа K, а также их сумму S
 // (K — входной, C и S — выходные параметры целого типа).
+
+// function Proc6 (K, C, S){
 //
+// }
 //
+// console.log(Proc6());
+
 // # 9) Минимумы и максимумы
 // Для решения заданий из данной группы следует использовать «однопроходные» алгоритмы,
 //     позволяющие получить требуемый результат после однократного просмотра набора исходных данных.
@@ -284,9 +380,169 @@ function sumNumbers (number){
 // Дано целое число N.
 //     Сгенерируйте массив из N случайных целых чисел.
 //     Найти минимальный и максимальный из элементов данного массива и вывести их в указанном порядке.
-//
+
+function Minmax1 (N){
+    const array = [];
+
+    for (let i = 0; i <= N; i ++){
+        array.push(i);
+    }
+
+    return Math.min(...array);
+    return Math.max(...array);
+}
+
+// console.log(Minmax1(4));
+
 // ## Minmax2
 // Дано целое число N и набор из N прямоугольников,
 //     заданных своими сторонами — объектами c парами рандомных чисел {a, b}.
 // Найти минимальную и максимальную площадь прямоугольников из данного набора.
 //     Пример массива на JS: "[{a: 4, b: 5},{a: 1, b: 7},{a: 1, b: 6},{a: 2, b: 2},{a: 1, b: 9}]"
+
+function Minmax2 (N){
+    let array = [];
+
+    for(let i of N) {
+        let w = Object.values(i);
+
+        array.push(w[0] * w[1]);
+    }
+
+    // return array;
+    // return Math.min(...array);
+    return Math.max(...array);
+}
+
+// console.log(Minmax2([{a: 4, b: 5},{a: 1, b: 7},{a: 1, b: 6},{a: 2, b: 2},{a: 1, b: 9}]));
+
+
+// Case1. Дано целое число в диапазоне 1–7.
+// Вывести строку — название дня недели,
+// соответствующее данному числу (1 — «понедельник» 2 - вторник и т.д)
+
+function caseOne (number) {
+    switch (number){
+        case 1:
+            return 'Monday';
+        case 2:
+            return "Еuesday";
+        case 3:
+            return 'Wednesday';
+        case 4:
+            return 'Thursday ';
+        case 5:
+            return 'Friday';
+        case 6:
+            return 'Saturday';
+        case 7:
+            return 'Sunday';
+
+        default:
+            return 'is not weak day';
+    }
+}
+
+// console.log(caseOne(3));
+
+
+// Case4. Дан номер месяца — целое число в диапазоне 1–12 (1 — январь, 2 — февраль и т. д.).
+// Определить количество дней в этом месяце для невисокосного года.
+
+function Case4 (number){
+    switch (number){
+        case 1:
+            console.log('30 дней');
+            break;
+        case 2:
+            console.log('Высокосный год');
+            break;
+        case 3:
+            console.log('31 дней');
+            break;
+        case 4:
+            console.log('30 дней');
+            break;
+        case 5:
+            console.log('31 дней');
+            break;
+        case 6:
+            console.log('30 дней');
+            break;
+        case 7:
+            console.log('31 дней');
+            break;
+        case 8:
+            console.log('30 дней');
+            break;
+        case 9:
+            console.log('31 дней');
+            break;
+        case 10:
+            console.log('30 дней');
+            break;
+        case 11:
+            console.log('31 дней');
+            break;
+        case 12:
+            console.log('30 дней');
+            break;
+
+        default:
+            return "Введите правильную цифру"
+    }
+}
+
+// console.log(Case4(2));
+
+
+// Case5. Арифметические действия над числами пронумерованы следующим образом:
+// 1 — сложение, 2 — вычитание, 3 — умножение, 4 — деление.
+// Дан номер действия N (целое число в диапазоне 1–4) и вещественные числа A и B (В не равно 0).
+// Выполнить над числами указанное действие и вывести результат.
+
+function Case5 (number){
+    const A = 1;
+    const B = 2;
+
+    switch (number){
+        case 1:
+            return A + B;
+        case 2:
+            return A - B;
+        case 3:
+            return A * B;
+        case 4:
+            return A / B;
+
+        default:
+            return 'Введите привильное число'
+    }
+}
+
+// console.log(Case5(6));
+
+//Case6. Единицы длины пронумерованы следующим образом: 1 — дециметр, 2 — километр, 3 — метр, 4 — миллиметр, 5 — сантиметр.
+// Дан номер единицы длины (целое число в диапазоне 1–5)
+// и длина отрезка в этих единицах (вещественное число). Найти длину отрезка в метрах.
+
+function Case6 (number) {
+
+    switch (number) {
+        case 1:
+            return number * 10;
+        case 2:
+            return number / 1000;
+        case 3:
+            return number;
+        case 4:
+            return number * 1000;
+        case 5:
+            return number * 100;
+
+        default:
+            return 'Введите правильное число';
+    }
+}
+
+// console.log(Case6(1));
