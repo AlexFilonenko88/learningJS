@@ -284,21 +284,25 @@ function while9 (N){
 // console.log(while9(15));
 
 // ## while17
-// Дано целое число N (>0).
+// Дано целое число N (>0). /// 555
 // Используя операции деления нацело и взятия остатка от деления,
 //     вывести все его цифры, начиная с самой правой (разряда единиц)
 
 function while17 (N){
-    let K = 1;
-
-    while(3 ** K < N){
-        K += 1;
+    let counter = N, divider = 1
+    const res = []
+    while(counter > 0) {
+        console.log(counter, divider, Math.floor(counter / divider) % 10)
+        res.unshift(Math.floor(counter) % 10)
+        divider = divider * 10
+        counter = Number(String(counter).slice(0, -1))
     }
 
-    return K;
+    // return [Math.floor(N / 1000) % 10, Math.floor(N / 100) % 10, Math.floor(N / 10) % 10, N % 10];
+    return res
 }
 
-// console.log(while7(15));
+// console.log(while17(3456));
 
 // ## while24
 // Дано целое число N (> 1).
@@ -307,9 +311,27 @@ function while17 (N){
 //
 //     Последовательность чисел Фибоначчи (FK) определяется следующим образом:
 //     "F[1] = 1, F[2] = 1, F[3] = F[1] + F[2], F[4] = F[2] + F[3] ... где сами числа = 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144..."
-//
-//
-// # 7) Последовательности
+
+function while24 (N){
+    let number1 = 1;
+    let number2 = 1;
+
+    while(N >= (number1 + number2)){
+        let temp = number1;
+        number1 = number2;
+        number2 += temp;
+        console.log(number2)
+        if(N === number2){
+            return true;
+        }
+    }
+
+    return false;
+}
+
+// console.log(while24(144));
+
+// # 7) Последо243ельности
 // Во всех заданиях данной группы предполагается, что исходный набор содержит ненулевое число элементов
 // (в частности, число N всегда больше нуля).
 //
@@ -364,10 +386,10 @@ function Proc6 (A){
 // Описать функцию DigitCountSum(K, C, S), находящую количество C цифр целого положительного числа K, а также их сумму S
 // (K — входной, C и S — выходные параметры целого типа).
 
-// function Proc6 (K, C, S){
-//
-// }
-//
+function Proc6 (K, C, S){
+
+}
+
 // console.log(Proc6());
 
 // # 9) Минимумы и максимумы
@@ -383,16 +405,24 @@ function Proc6 (A){
 
 function Minmax1 (N){
     const array = [];
+    let min = Infinity;
+    let max = -Infinity;
 
     for (let i = 0; i <= N; i ++){
-        array.push(i);
+        array.push(Math.random() * 100);
+        if(array[i] < min){
+            min = array[i];
+        }
+        if(array[i] > max){
+            max = array[i];
+        }
     }
+    console.log(array)
+    return {min, max}
 
-    return Math.min(...array);
-    return Math.max(...array);
 }
 
-// console.log(Minmax1(4));
+console.log(Minmax1(4));
 
 // ## Minmax2
 // Дано целое число N и набор из N прямоугольников,
@@ -403,10 +433,10 @@ function Minmax1 (N){
 function Minmax2 (N){
     let array = [];
 
-    for(let i of N) {
-        let w = Object.values(i);
+    for(let key of N) {
+        //let w = Object.values(i);
 
-        array.push(w[0] * w[1]);
+        array.push(key.a * key.b);
     }
 
     // return array;
@@ -414,7 +444,7 @@ function Minmax2 (N){
     return Math.max(...array);
 }
 
-// console.log(Minmax2([{a: 4, b: 5},{a: 1, b: 7},{a: 1, b: 6},{a: 2, b: 2},{a: 1, b: 9}]));
+console.log(Minmax2([{a: 4, b: 5},{a: 1, b: 7},{a: 1, b: 6},{a: 2, b: 2},{a: 1, b: 9}]));
 
 
 // Case1. Дано целое число в диапазоне 1–7.
@@ -546,3 +576,6 @@ function Case6 (number) {
 }
 
 // console.log(Case6(1));
+
+
+//'89194597824' ---> "+7 (919) 459 78-24 "
