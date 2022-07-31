@@ -1,56 +1,71 @@
-// 1. Дан массив A размера N и целое число K (1 ≤ K ≤ N). Преобразовать массив, увеличив каждый его элемент на исходное значение элемента AK
+// 1. Дан массив A размера N и целое число K (1 ≤ K ≤ N).
+// Преобразовать массив, увеличив каждый его элемент на исходное значение элемента AK
 
 function array1 (A, N){
     let newArray = [];
 
-    for(let i = 0; i <= A.length; i ++){
-        newArray += A[i] * N;
+    for(let i = 0; i < A.length; i ++){
+        newArray += A[i] + A[N];
     }
 
     return newArray;
 }
 
-// console.log(array1([0,1,2,3,4,5], 2));
+// console.log(array1([0,1,3,3,6,7,9,10], 2));
 
 
 // 2. Дан целочисленный массив размера N. Увеличить все четные числа, содержащиеся в массиве, на исходное значение первого четного числа.
 // Если четные числа в массиве отсутствуют, то оставить массив без изменений.
+// "взять" первое четное число ?
+// на +
+// в *
 
 function array2 (N) {
     const newArray = [];
+    let evenNumber = null;
+    //
+    // for(let i = 0; i < N.length; i++){
+    //     if(N[i] % 2 === 0){
+    //         evenNumber = N[i];
+    //         break;
+    //     }
+    // }
 
-    for(let i = 0; i <= N.length; i ++){
-        if(N[i] % 2 === 0){
-            newArray.push(N[i]);
-            for(let number of newArray){
-                // number += N[i]
-                newArray.push(number += N[i]);
-            }
+    for(let i = 0; i < N.length; i ++){
+        if(!evenNumber && N[i] % 2 === 0){
+            evenNumber = N[i];
         }
-        // if(i % 2){
-        //
-        // }
+        if(N[i] % 2 === 0){
+            newArray.push(N[i] + evenNumber);
+        } else {
+            newArray.push(N[i]);
+        }
     }
 
     return newArray;
 }
 
-console.log(array2([0,1,2,3,4,5,6,7]));
+// console.log(array2([1,2,3,4,5,6,7]));
 
-//    3. Дан целочисленный массив размера N. Вывести все содержащиеся в данном массиве четные числа в порядке убывания их индексов, а также их количество.
+//    3. Дан целочисленный массив размера N.
+//    Вывести все содержащиеся в данном массиве четные числа в порядке убывания их индексов, а также их количество.
 
 function array3 (N){
     const arrayNew = [];
 
-    for(let i = 0; i <= N.length; i++){
-        if(N[i] % 2 === 0){
-            arrayNew.push(N[i]);
+    // for(let i = 0; i <= N.length; i++){
+    //     if(N[i] % 2 === 0){
+    //         arrayNew.push(N[i]);
+    //     }
+    // }
+
+    for(let i = N.length-1; i >= 0; i-- ){
+        if(N[i] % 2 === 0) {
+            arrayNew.push(N[i])
         }
     }
 
-    // return arrayNew.reverse();
-    return arrayNew.length;
-
+    return [arrayNew, arrayNew.length];
 }
 
 // console.log(array3([1,2,3,4,5,6,7]));
@@ -58,28 +73,36 @@ function array3 (N){
 //     4. Дан массив ненулевых целых чисел размера N. Проверить, образуют ли его элементы число фибоначи.
 //     (Число фибоначи - 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181)
 
-function array4 (){
-
+function array4 (N){
+    // если текуще чило массива не равен сумме двух предыдущих элементов то это не число фиббоначи
 }
 
-// console.log(array4([1,2,3,4,5,6,7]));
+// console.log(array4([1,2,3,4,5,6,7,8]));
 
 // 5. Сформировать массив длинной N. Проверить чередуются ли в нем четные и нечетные числа
 
-function array5 (N){
+function array5 (N){ // аргументы
+    const newArray = [];
+    let isOdd = true;
 
-    for(let number of N) {
-          if (number % 2 === 0 || number % 2 !== 0) {
-              console.log(number % 2 !== 0);
-              return true;
+    for(let i = 0; i < N; i++) {
+        newArray[i] = Math.round(Math.random()*10);
+        if(isOdd && newArray[i] % 2 === 0){
+            return false;
         }
+        if(!isOdd && newArray[i] % 2 !== 0){
+            return false;
+        }
+        isOdd = !isOdd;
     }
-    return false;
+    console.log(newArray);
+    return true;
 }
 
-// console.log(array5([1, 0, 1, 1]));
+// console.log(array5(3)); // параметры
 
-// 6. Сформировать массив длинной N. Проверить чередуются ли в нем отрицательные и положительные числа.
+// 6. Данн массив array. Проверить чередуются ли в нем отрицательные и положительные числа.
+// ture / false
 
 function array6 (N){
 
@@ -90,26 +113,33 @@ function array6 (N){
 
 //    7. Дан массив A размера N. Найти минимальный элемент из его элементов с четными номерами (с четным индексами)
 
-function array6 (N){
+function array7 (A){
     let min = Infinity;
 
-    for(let i = 0; i <= N.length; i ++){
-        if(i % 2 === 0 || N[i] > min){
-            return N[i];
+    for(let i = 0; i <= A.length; i ++){
+        if(i % 2 === 0 && A[i] < min){
+            min = A[i];
         }
     }
 
+    return min;
 }
 
-// console.log(array6([2, 9, 4]));
+// console.log(array7([1, 2, 4]));
+
 
 // 8. Сформировать объект формата {a: 1, b: 2, c: 3, d: 4...}
-//
+// [1,2,3,4,5,6,7,8,9]
+
 // 9. дан массив объектов [{name: "vasya", age: 33}, {name: "petya", age: 22}, {name: "Sacha": 23}, {name: "kolya": age: 46}]
 // Сформировать новый массив объектов из объектов, у которых age < 30
-//
+//obj.age   // obj.['age']
+
+
 // 10. Дан объект координат, вида {a: 1,5, b: 3,6, c: 7,2, d: 8,2, e: 1,2} вычислить среднюю координату в заданном объекте
-//
+// Obj.values
+
+
 // 11. Дан массив объектов(учеников в классе) вида [{name: "vasya", age: 12, score: 4}, {name: "petya", age: 13,score: 3}, {name: "Sacha": 12, score: 5}, {name: "kolya": age: 13, score: 5}] поменять score в объекте с минимальным значением на максимальное
 //
 // 12. Дан объект координат, вида {a: {x: 1.5, y: 2.3}, b: {x: 3.6, y: 6.5}, c: {x: 7.2, y: 3.3}, d: {x: 8.2, y: 5.5}, e: {x: 1.2, y: 3.7}} вычислить среднюю координату в заданном объекте
