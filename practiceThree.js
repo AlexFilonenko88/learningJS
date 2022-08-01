@@ -131,16 +131,43 @@ function array7 (A){
 // 8. Сформировать объект формата {a: 1, b: 2, c: 3, d: 4...}
 // [1,2,3,4,5,6,7,8,9]
 
+function object8 (array){
+    const arrayLetters = ['a', 'b', 'c', 'd', 'e', 'f'];
+
+    for(let i = 0; i < array.length; i++){
+        for (let j = 0; j < arrayLetters.length; j++) {
+            console.log(j)
+            // return {w[j] : array[i]}
+        }
+    }
+}
+
+// console.log(object8([1,2,3,4,5,6,7,8,9]));
+
 // 9. дан массив объектов [{name: "vasya", age: 33}, {name: "petya", age: 22}, {name: "Sacha": 23}, {name: "kolya": age: 46}]
 // Сформировать новый массив объектов из объектов, у которых age < 30
 //obj.age   // obj.['age']
 
+function object9 (array) {
+    const result = [];
+
+    for (let i = 0; i < array.length; i++){
+        if(array[i].age < 30){
+            result.push(array[i]);
+        }
+    }
+
+    return result;
+}
+
+console.log(object9([{name: "vasya", age: 33}, {name: "petya", age: 22}, {name: "Sacha", age: 23}, {name: "kolya", age: 46}] ));
 
 // 10. Дан объект координат, вида {a: 1,5, b: 3,6, c: 7,2, d: 8,2, e: 1,2} вычислить среднюю координату в заданном объекте
 // Obj.values
 
 
-// 11. Дан массив объектов(учеников в классе) вида [{name: "vasya", age: 12, score: 4}, {name: "petya", age: 13,score: 3}, {name: "Sacha": 12, score: 5}, {name: "kolya": age: 13, score: 5}] поменять score в объекте с минимальным значением на максимальное
+// 11. Дан массив объектов(учеников в классе) вида [{name: "vasya", age: 12, score: 4}, {name: "petya", age: 13,score: 3}, {name: "Sacha": 12, score: 5}, {name: "kolya": age: 13, score: 5}]
+// поменять score в объекте с минимальным значением на максимальное
 //
 // 12. Дан объект координат, вида {a: {x: 1.5, y: 2.3}, b: {x: 3.6, y: 6.5}, c: {x: 7.2, y: 3.3}, d: {x: 8.2, y: 5.5}, e: {x: 1.2, y: 3.7}} вычислить среднюю координату в заданном объекте
 //
