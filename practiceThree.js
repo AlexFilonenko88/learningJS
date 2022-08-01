@@ -160,11 +160,25 @@ function object9 (array) {
     return result;
 }
 
-console.log(object9([{name: "vasya", age: 33}, {name: "petya", age: 22}, {name: "Sacha", age: 23}, {name: "kolya", age: 46}] ));
+// console.log(object9([{name: "vasya", age: 33}, {name: "petya", age: 22}, {name: "Sacha", age: 23}, {name: "kolya", age: 46}] ));
 
 // 10. Дан объект координат, вида {a: 1,5, b: 3,6, c: 7,2, d: 8,2, e: 1,2} вычислить среднюю координату в заданном объекте
-// Obj.values
 
+//?????????????????????????
+
+function object9 (object){
+    let result = 0;
+    const resultArray = [];
+
+    for(let obj in object){
+        result += object[obj];
+        resultArray.push(object[obj]);
+    }
+
+    return result / resultArray.length;
+}
+
+console.log(object9({a: 1.5, b: 3.6, c: 7.2, d: 8.2, e: 1.2}));
 
 // 11. Дан массив объектов(учеников в классе) вида [{name: "vasya", age: 12, score: 4}, {name: "petya", age: 13,score: 3}, {name: "Sacha": 12, score: 5}, {name: "kolya": age: 13, score: 5}]
 // поменять score в объекте с минимальным значением на максимальное
