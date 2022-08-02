@@ -33,10 +33,22 @@ function Minmax6 (array) {
     return {min, max};
 }
 
-// console.log(Minmax6([1,2,3,4,5,6,7,8,9]));
+// v;
 
 // 3) Series1 Данн массив из десяти вещественных чисел. Найти произведение всех чисел .
-//
+
+function Series1 (arrayNumber) {
+    let compositionNumber = 1;
+
+    for (let number of arrayNumber){
+        compositionNumber *= number;
+    }
+
+    return compositionNumber;
+}
+
+// console.log(Series1([1,2,3,4,5,6,7,8,9]))
+
 // 4) Minmax1 Дано целое число N и набор из N чисел. Найти минимальный и
 // максимальный из элементов данного набора и вывести их в указанном
 // порядке. (Реализовать поиск в цикле генераци массива)
