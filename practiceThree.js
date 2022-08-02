@@ -102,14 +102,18 @@ function array5 (N){ // аргументы
 // console.log(array5(3)); // параметры
 
 // 6. Данн массив array. Проверить чередуются ли в нем отрицательные и положительные числа.
-// ture / false
+// true / false
 
-function array6 (N){
-
+function array6 (array){
+    for(let number of array){
+        if(number < 0 && number > 0){
+            return true;
+        }
+    }
 
 }
 
-// console.log(array6([1, -2, 1, -4]));
+// console.log(array6([-1, 2, -1, 4]));
 
 //    7. Дан массив A размера N. Найти минимальный элемент из его элементов с четными номерами (с четным индексами)
 
@@ -182,10 +186,32 @@ function object9 (object){
 
 // 11. Дан массив объектов(учеников в классе) вида [{name: "vasya", age: 12, score: 4}, {name: "petya", age: 13,score: 3}, {name: "Sacha": 12, score: 5}, {name: "kolya": age: 13, score: 5}]
 // поменять score в объекте с минимальным значением на максимальное
-//
+
+function object11 (array){
+    // for (let obj of array){
+    //     if(obj.score < 5){
+    //         return obj.score = 5;
+    //     }
+    // }
+}
+
+// console.log(object11([{name: "vasya", age: 12, score: 4}, {name: "petya", age: 13,score: 3}, {name: "Sacha", age: 12, score: 5}, {name: "kolya", age: 13, score: 5}]));
+
 // 12. Дан объект координат, вида {a: {x: 1.5, y: 2.3}, b: {x: 3.6, y: 6.5}, c: {x: 7.2, y: 3.3}, d: {x: 8.2, y: 5.5}, e: {x: 1.2, y: 3.7}}
 // вычислить среднюю координату в заданном объекте
-//
+
+function object12 (objects){
+    let result = [];
+
+    for(let obj in objects){
+        result.push((objects[obj].x + objects[obj].y) / 2);
+    }
+
+    return result;
+}
+
+// console.log(object12({a: {x: 1.5, y: 2.3}, b: {x: 3.6, y: 6.5}, c: {x: 7.2, y: 3.3}, d: {x: 8.2, y: 5.5}, e: {x: 1.2, y: 3.7}}));
+
 // 13. Дан массив объектов [{a: 1, b: 3, c: 2},{a: 4, b: 3, c: 7},{a:2, b: 3, c: 5}] Продублировать объект, содержащий ее максимальный элемент
 //
 // 14. Дан массив формата ['a','v','w','u','q','p','i'], перевести его в объект формата {a: 0, v:1, w:2,u:3, q:4, p:5, i:6}
