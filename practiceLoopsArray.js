@@ -8,7 +8,7 @@ function array1 (N, K, L) {
         if (i === K && i === L) {
 
         }
-}
+    }
 }
 
 // console.log(array1([0,1,2,3,4,5,6,7,8,9],2, 4));
@@ -119,20 +119,48 @@ function Series13 (array){
     let sum = 0;
 
     for(let number of array){
-        if(number < 0 && number % 2 === 1){
-            return false;
-        }
         if(number > 0 && number % 2 === 0){
             sum += number;
+        }
+        if(number < 0 && number % 2 === 1){
+            return false;
         }
     }
 
     return sum;
 }
 
-// console.log(Series13([-1,1,3,5,7,9]));
+// console.log(Series13([-1,-3]));
 
 // 9) Array48. Дан целочисленный массив размера N. Найти максимальное количество его одинаковых элементов.
-//
+
+function Array48 (array) {
+    const result = [];
+
+    for(let i = 0; i < array.length; i++){
+        if(array[i] === array[i + 1]){
+            result.push(array[i]);
+        }
+    }
+
+    return  result.length;
+}
+
+// console.log(Array48([1,1,1,3,9,5,6,7,8,9]));
+
 // 10) Array49. Дан целочисленный массив размера N. Если он является перестановкой, то есть содержит все числа от 1 до N, то вывести 0; в противном
 // случае вывести номер первого недопустимого элемента.
+
+function Array49 (array){
+    for(let i = 0; i < array.length; i++){
+        // console.log(array[i] < array[i + 1]);
+        if(array[i] > array[i + 1]){
+            return i;
+        }
+        if(array[i] < array[i + 1]){
+            return 0;
+        }
+    }
+}
+
+// console.log(Array49([100,1,2,3,9,5,6,7,8,9]));
