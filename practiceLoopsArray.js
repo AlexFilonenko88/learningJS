@@ -105,48 +105,80 @@ function Series11 (array, K) {
 // 7) Series12. Дан набор ненулевых целых чисел; признак его завершения — число 0.
 // Вывести количество чисел в наборе.
 
-// ????????
-function Series12 (array) {
-    return array.length;
-}
+function Series12 () {
+    const array = [];
 
-// console.log(Series12([1,2,3]));
+    // while (true){
+    //     let a = Math.round(Math.random()*10);
+    //     array.push(a)
+    //     if(a === 0){
+    //         return array.length;
+    //     }
+    // }
+
+    // рекурсия
+
+    function Nested(a){
+        array.push(a)
+        if(a === 0){//условия выхода обязательно
+            return array;
+        }
+        return Nested(Math.round(Math.random()*10));//возвр вызов самой себя с рандомным числом
+    }
+    return Nested(Math.round(Math.random()*10)).length;//функция возвращает длину массива
+}
+//вызов сериез 12 возвращает нестед
+// console.log(Series12());
 
 // 8) Series13. Дан набор ненулевых целых чисел; признак его завершения — число 0.
 // Вывести сумму всех положительных четных чисел из данного набора. Если требуемые числа в наборе отсутствуют, то вывести 0.
 
-function Series13 (array){
-    let sum = 0;
+function Series13 (){
+    const array = [];
 
-    for(let number of array){
-        if(number > 0 && number % 2 === 0){
-            sum += number;
-        }
-        if(number < 0 && number % 2 === 1){
-            return false;
-        }
+    // while (true){
+    //     let a = Math.round(Math.random()*10);
+    //     array.push(a)
+    //     if(a === 0){
+    //         return array.filter(el => el % 2 === 0 && el > 0).reduce((el, acc) => el + acc);
+    //     }
+    // }
+
+    for(;;){
+        let a = Math.round(Math.random()*10);
+        array.push(a)
+        if(a === 0){
+            break;
+         }
     }
 
-    return sum;
+    return array.filter(el => el % 2 === 0 && el > 0).reduce((el, acc) => el + acc);
 }
 
-// console.log(Series13([-1,-3]));
+// console.log(Series13());
 
 // 9) Array48. Дан целочисленный массив размера N. Найти максимальное количество его одинаковых элементов.
 
+//!!!!!
 function Array48 (array) {
-    const result = [];
+    let maxCount = 0;
 
     for(let i = 0; i < array.length; i++){
-        if(array[i] === array[i + 1]){
-            result.push(array[i]);
+        let count = 1;
+        for(let j = 0; j < i; j++){
+            if(array[i] === array[j]) {
+                count += 1;
+            }
+        }
+        if(count > maxCount){
+            maxCount = count;
         }
     }
 
-    return  result.length;
+    return  maxCount;
 }
 
-// console.log(Array48([1,1,1,3,9,5,6,7,8,9]));
+console.log(Array48([1,1,1,3,9,5,3,7,8,9,9,9,9,9,9,9,9]));
 
 // 10) Array49. Дан целочисленный массив размера N. Если он является перестановкой, то есть содержит все числа от 1 до N, то вывести 0; в противном
 // случае вывести номер первого недопустимого элемента.
