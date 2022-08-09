@@ -385,14 +385,23 @@ function Proc6 (A){
 // console.log(Proc6(2))
 
 // ## Proc6
-// Описать функцию DigitCountSum(K, C, S), находящую количество C цифр целого положительного числа K, а также их сумму S
+// Описать функцию DigitCountSum(K, C, S),
+// находящую количество C цифр целого положительного числа K, а также их сумму S
 // (K — входной, C и S — выходные параметры целого типа).
 
-function Proc6 (K, C, S){
+function Proc6 (K){
+    const strNum = String(K);
+    let S = 0;
+    let C = strNum.length;
 
+    for(let i = 0; i < strNum.length; i++){
+        S += Number(strNum[i]);
+    }
+
+    return {C, S};
 }
 
-// console.log(Proc6());
+// console.log(Proc6(345));
 
 // # 9) Минимумы и максимумы
 // Для решения заданий из данной группы следует использовать «однопроходные» алгоритмы,
@@ -424,7 +433,7 @@ function Minmax1 (N){
 
 }
 
-console.log(Minmax1(4));
+// console.log(Minmax1(4));
 
 // ## Minmax2
 // Дано целое число N и набор из N прямоугольников,
@@ -446,8 +455,7 @@ function Minmax2 (N){
     return Math.max(...array);
 }
 
-console.log(Minmax2([{a: 4, b: 5},{a: 1, b: 7},{a: 1, b: 6},{a: 2, b: 2},{a: 1, b: 9}]));
-
+// console.log(Minmax2([{a: 4, b: 5},{a: 1, b: 7},{a: 1, b: 6},{a: 2, b: 2},{a: 1, b: 9}]));
 
 // Case1. Дано целое число в диапазоне 1–7.
 // Вывести строку — название дня недели,

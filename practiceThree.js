@@ -143,14 +143,15 @@ function array7 (A){
 // [1,2,3,4,5,6,7,8,9]
 
 function object8 (array){
-    const arrayLetters = ['a', 'b', 'c', 'd', 'e', 'f'];
+    const obj = {};
+    const shiftNumber = 97;
 
-    for(let i = 0; i < array.length; i++){
-        for (let j = 0; j < arrayLetters.length; j++) {
-            console.log(j)
-            // return {w[j] : array[i]}
-        }
+    for (let i = shiftNumber; i < array.length + shiftNumber; i++){
+        const field = String.fromCharCode(i); // возр по числовому значению юникод саму букву
+        obj[field] = array[i - shiftNumber]; // ключ = значение
     }
+
+    return obj;
 }
 
 // console.log(object8([1,2,3,4,5,6,7,8,9]));
@@ -175,31 +176,47 @@ function object9 (array) {
 
 // 10. Дан объект координат, вида {a: 1,5, b: 3,6, c: 7,2, d: 8,2, e: 1,2} вычислить среднюю координату в заданном объекте
 
-//?????????????????????????
-
-function object9 (object){
+function object10 (object){
     let result = 0;
-    const resultArray = [];
+    // const resultArray = [];
+    let increment = 0;
 
     for(let obj in object){
         result += object[obj];
-        resultArray.push(object[obj]);
+        increment ++;
     }
 
-    return result / resultArray.length;
+    return result / increment;
 }
 
-// console.log(object9({a: 1.5, b: 3.6, c: 7.2, d: 8.2, e: 1.2}));
+// console.log(object10({a: 1.5, b: 3.6, c: 7.2, d: 8.2, e: 1.2}));
 
-// 11. Дан массив объектов(учеников в классе) вида [{name: "vasya", age: 12, score: 4}, {name: "petya", age: 13,score: 3}, {name: "Sacha": 12, score: 5}, {name: "kolya": age: 13, score: 5}]
+// 11. Дан массив объектов(учеников в классе) вида
+// [{name: "vasya", age: 12, score: 4}, {name: "petya", age: 13,score: 3}, {name: "Sacha": 12, score: 5}, {name: "kolya": age: 13, score: 5}]
 // поменять score в объекте с минимальным значением на максимальное
 
 function object11 (array){
-    // for (let obj of array){
-    //     if(obj.score < 5){
-    //         return obj.score = 5;
-    //     }
-    // }
+    let min = Infinity;
+    let max = -Infinity;
+    let minIndex = 0;
+    let maxIndex = 0;
+
+    for (let i = 0; i < array.length; i++){
+        if(array[i].score < min){
+            min = array[i].score;
+            minIndex = i;
+        }
+        if(array[i].score > max){
+            max = array[i].score;
+            maxIndex = i;
+        }
+    }
+    const newArray = array;
+
+    newArray[minIndex].score = newArray[maxIndex].score;
+
+    return newArray;
+
 }
 
 // console.log(object11([{name: "vasya", age: 12, score: 4}, {name: "petya", age: 13,score: 3}, {name: "Sacha", age: 12, score: 5}, {name: "kolya", age: 13, score: 5}]));
@@ -271,4 +288,5 @@ function object16 (array){
 //
 // 19. Есть массив, формата [4,8,2,8,6] получить из него объект, формата { '2':2, '4':4, '1':1, '4':4, '3':3}
 //
-// 20. Найти в данном массиве объектов title, с самым длинным normalized_job_title и поменять местами объекты массива первый с последним https://gist.github.com/Greyewi/e969847c8b901357c9d2f9c9e6a1ab27
+// 20. Найти в данном массиве объектов title, с самым длинным normalized_job_title
+// и поменять местами объекты массива первый с последним https://gist.github.com/Greyewi/e969847c8b901357c9d2f9c9e6a1ab27
