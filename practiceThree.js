@@ -263,7 +263,7 @@ function array14 (array){
 
     for(let i = unicodeNumber; i < array.length + unicodeNumber; i++){
         const field = String.fromCharCode(i);
-        obj[array[i - unicodeNumber]] = field;
+        obj[array[i - unicodeNumber]] = Number(field);
     }
 
     return obj;
