@@ -256,7 +256,21 @@ function object13 (arrayObj){
 // console.log(object13([{a: 1, b: 3, c: 2},{a: 4, b: 3, c: 7},{a:2, b: 3, c: 5}]));
 
 // 14. Дан массив формата ['a','v','w','u','q','p','i'], перевести его в объект формата {a: 0, v:1, w:2,u:3, q:4, p:5, i:6}
-//
+
+function array14 (array){
+    const obj = {};
+    const unicodeNumber = 48;
+
+    for(let i = unicodeNumber; i < array.length + unicodeNumber; i++){
+        const field = String.fromCharCode(i);
+        obj[array[i - unicodeNumber]] = field;
+    }
+
+    return obj;
+}
+
+console.log(array14(['a','v','w','u','q','p','i']));
+
 // 15. Дан массив объектов [{a: 5, b: 4, c:6},{a: 2, b: 1, c: 7},{a:2, b: 3, c: 5}]
 // Получить объект с максимальной суммой значений и Сформировать массив из сумм отбъектов (a + b + c)
 //
