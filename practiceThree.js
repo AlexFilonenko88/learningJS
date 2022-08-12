@@ -1,3 +1,5 @@
+// import gistfile from './gistfile1.txt' assert {type: 'json'}
+
 // 1. Дан массив A размера N и целое число K (1 ≤ K ≤ N).
 // Преобразовать массив, увеличив каждый его элемент на исходное значение элемента AK
 
@@ -304,3 +306,9 @@ function object16 (array){
 //
 // 20. Найти в данном массиве объектов title, с самым длинным normalized_job_title
 // и поменять местами объекты массива первый с последним https://gist.github.com/Greyewi/e969847c8b901357c9d2f9c9e6a1ab27
+
+function Obj20 (obj){
+    console.log(obj);
+}
+
+console.log(Obj20(gistfile));
