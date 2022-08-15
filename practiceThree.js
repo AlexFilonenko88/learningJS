@@ -227,13 +227,19 @@ function object11 (array){
 // вычислить среднюю координату в заданном объекте
 
 function object12 (objects){
-    let result = [];
+    let length = 0;
+    let x = 0;
+    let y = 0;
+
 
     for(let obj in objects){
-        result.push((objects[obj].x + objects[obj].y) / 2);
+        x += objects[obj].x;
+        y += objects[obj].y;
+        length ++;
     }
 
-    return result;
+
+    return {x: x / length, y: y / length};
 }
 
 // console.log(object12({a: {x: 1.5, y: 2.3}, b: {x: 3.6, y: 6.5}, c: {x: 7.2, y: 3.3}, d: {x: 8.2, y: 5.5}, e: {x: 1.2, y: 3.7}}));
@@ -241,19 +247,20 @@ function object12 (objects){
 // 13. Дан массив объектов [{a: 1, b: 3, c: 2},{a: 4, b: 3, c: 7},{a:2, b: 3, c: 5}]
 // Продублировать объект, содержащий ее максимальный элемент
 
-function object13 (arrayObj){
+function object13 (object13){
     let max = 0;
 
-    for(let obj of arrayObj){
-        for(let elem in obj){
-            if(obj[elem] > obj[elem + 1]){
-                max += obj[elem]
-            }
+    for(let obj of object13){
+
+        const maxValue = Math.max(...Object.values(obj));
+        if(maxValue > max){
+            max = maxValue;
         }
-    }
+   }
 
     return max;
 }
+
 
 // console.log(object13([{a: 1, b: 3, c: 2},{a: 4, b: 3, c: 7},{a:2, b: 3, c: 5}]));
 
@@ -271,29 +278,51 @@ function array14 (array){
     return obj;
 }
 
-console.log(array14(['a','v','w','u','q','p','i']));
+// console.log(array14(['a','v','w','u','q','p','i']));
 
 // 15. Дан массив объектов [{a: 5, b: 4, c:6},{a: 2, b: 1, c: 7},{a:2, b: 3, c: 5}]
 // Получить объект с максимальной суммой значений и Сформировать массив из сумм отбъектов (a + b + c)
-//
+
+function array15 (array){
+    let result = [];
+    let max = 0;
+
+    for(let obj of array){
+        const objValue = Object.values(obj).reduce((acc, elem) => acc + elem, 0);
+        // result.push(objValue);
+        result = [...result, objValue]; // 2способ!!!
+        if(objValue > max){
+            max = objValue;
+        }
+    }
+
+    console.log({a: max})
+    return result;
+}
+
+// console.log(array15([{a: 5, b: 4, c:6},{a: 2, b: 1, c: 7},{a:2, b: 3, c: 5}]));
+
+
 // 16. Дан массив формата ['2','5','1','4,'3','6','0'] Перевести строки в числа и отсортировать их в порядке возрастания.
 // Сформировать из этих значений объект, формата {'2': 0, '5':1, '1':2, '4':3, '3':4, '6':5, '0':6}
 
 function object16 (array){
     const r = [];
-    // const w = r.sort();
-    const result = [];
 
     for (let string of array){
         r.push(Number(string));
 
-        for(let i = 0; i < r.length; i++){
-            console.log(array[string]);
-            // return {array[string]:r[i]};
-        }
     }
 
-    return r;
+    const resSort = r.sort();
+    const obj = {};
+
+    for(let i = 0; i < array.length-1; i++){
+        obj[array[i]] = i;
+    }
+
+
+    return obj;
 }
 
 // console.log(object16(['2','5','1','4','3','6','0']));
@@ -311,4 +340,4 @@ function Obj20 (obj){
     console.log(obj);
 }
 
-console.log(Obj20(gistfile));
+// console.log(Obj20(gistfile));
