@@ -1,4 +1,4 @@
-// import gistfile from './gistfile1.txt' assert {type: 'json'}
+const file = require("./gistfile1.json");
 
 // 1. Дан массив A размера N и целое число K (1 ≤ K ≤ N).
 // Преобразовать массив, увеличив каждый его элемент на исходное значение элемента AK
@@ -302,7 +302,6 @@ function array15 (array){
 
 // console.log(array15([{a: 5, b: 4, c:6},{a: 2, b: 1, c: 7},{a:2, b: 3, c: 5}]));
 
-
 // 16. Дан массив формата ['2','5','1','4,'3','6','0'] Перевести строки в числа и отсортировать их в порядке возрастания.
 // Сформировать из этих значений объект, формата {'2': 0, '5':1, '1':2, '4':3, '3':4, '6':5, '0':6}
 
@@ -328,16 +327,77 @@ function object16 (array){
 // console.log(object16(['2','5','1','4','3','6','0']));
 
 // 17. Есть массив, формата [4,8,2,8,6] получить из него массив, формата [[2,2],[4,4],[1,1],[4,4],[3,3]]
-//
+
+function object16 (array) {
+    const result = [];
+
+    for(let i = 0; i < array.length; i++){
+        let halfItem = array[i] / 2;
+        result.push([halfItem, halfItem]);
+    }
+
+    return result;
+}
+
+// console.log(object16([4,8,2,8,6, 7, 9]));
+
+
 // 18. Есть массив, формата [2,3,1,4,2] получить из него массив, формата [[1,2],[1,2,3],[1],[1,2,3,4],[1,2]]
-//
+
+function object17 (array){
+    const result = [];
+
+    for(let i = 0; i < array.length; i++){
+        const nestedArr = [];
+
+        for(let j = 1; j <= array[i]; j++){
+            nestedArr.push(j)
+        }
+
+        result.push(nestedArr)
+    }
+
+    return result;
+}
+
+// console.log(object17([2,3,1,4,2]));
+
 // 19. Есть массив, формата [4,8,2,8,6] получить из него объект, формата { '2':2, '4':4, '1':1, '4':4, '3':3}
-//
+
+function object19 (array){
+    const result = {};
+
+    for(let i = 0; i < array.length; i++){
+        let halfItem = array[i] / 2;
+
+        result[String(halfItem)] = halfItem;
+    }
+
+    return result;
+}
+
+// console.log(object19([4,8,2,8,6]));
+
 // 20. Найти в данном массиве объектов title, с самым длинным normalized_job_title
 // и поменять местами объекты массива первый с последним https://gist.github.com/Greyewi/e969847c8b901357c9d2f9c9e6a1ab27
 
 function Obj20 (obj){
-    console.log(obj);
+    let max = 0;
+    let title = '';
+
+    for(let i = 0; i < obj.length; i++){
+        if(obj[i].normalized_job_title.length > max){
+            max = obj[i].normalized_job_title.length;
+            title = obj[i].title;
+        }
+    }
+
+    return title;
 }
 
-// console.log(Obj20(gistfile));
+console.log(Obj20(file));
+
+const [first, ...rest] = file
+const last = file.at(-1)
+
+// console.log([last, rest.slice(0,-1), first])

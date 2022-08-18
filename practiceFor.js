@@ -1,4 +1,22 @@
 // Series14. Дано целое число K и набор ненулевых целых чисел; признак его завершения — число 0. Вывести количество чисел в наборе, меньших K.
+// генерирует рандомный массив
+
+function arrayGenerat (spred){
+    const array = []
+
+    for(;;){
+        const randomNumber = Math.round(Math.random() * spred);
+
+        if(randomNumber === 0){
+            break;
+        }
+
+        array.push(randomNumber);
+    }
+
+    return array;
+}
+
 
 function Series14 (K, array){
     const result = [];
@@ -12,7 +30,7 @@ function Series14 (K, array){
     return result;
 }
 
-// console.log(Series14(3, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+console.log(Series14(10, arrayGenerat(9)));
 
 // Series19 Дано целое число N (> 1) и набор из N целых чисел. Вывести те элементы в наборе, которые меньше своего левого соседа, и количество K таких элементов.
 
@@ -47,7 +65,7 @@ function Series21 (array){
     }
 }
 
-console.log(Series21([1,2,3,4,5,6,7,9,8]));
+// console.log(Series21([1,2,3,4,5,6,7,9,8]));
 
 // Series24. Дано целое число N и набор из N целых чисел, содержащий по крайней мере два нуля.
 // Вывести сумму чисел из данного набора, расположенных между последними двумя нулями (если последние нули идут подряд, то вывести 0).
