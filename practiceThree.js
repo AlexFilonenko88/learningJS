@@ -1,4 +1,5 @@
-const file = require("./gistfile1.json");
+// const file = require("./gistfile1.json");
+const axios = require("axios");
 
 // 1. Дан массив A размера N и целое число K (1 ≤ K ≤ N).
 // Преобразовать массив, увеличив каждый его элемент на исходное значение элемента AK
@@ -395,9 +396,12 @@ function Obj20 (obj){
     return title;
 }
 
-console.log(Obj20(file));
+axios("https://gist.githubusercontent.com/Greyewi/e969847c8b901357c9d2f9c9e6a1ab27/raw/fd5af08927366d3805cbcd8455799954fcec852a/gistfile1.txt")
+    .then((response) => console.log(Obj20(response.data)));
 
-const [first, ...rest] = file
-const last = file.at(-1)
+// console.log(Obj20(file));
+//
+// const [first, ...rest] = file
+// const last = file.at(-1)
 
 // console.log([last, rest.slice(0,-1), first])
