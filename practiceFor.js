@@ -91,11 +91,35 @@ function Series24 (array) {
 
 // console.log(Series24([1,2,0,0,3,5,9,0,5,5,0,4]));
 
-// Array15. Дан массив A размера N. Вывести вначале его элементы с нечетными номерами в порядке возрастания номеров, а затем — элементы с четными номерами в порядке убывания номеров.
+// Array15. Дан массив A размера N.
+// Вывести вначале его элементы с нечетными номерами в порядке возрастания номеров, а затем — элементы с четными номерами в порядке убывания номеров.
 
-// function Array15 (){
-//
-// }
+function Array15 (array){
+    const oddNumbers = []
+    const evenNumbers =[]
+
+    for(let i = 0; i < array.length; i++){
+        if(array[i] % 2 !== 0){
+            oddNumbers.push(array[i]);
+        }
+        if(array[i] % 2 === 0){
+            evenNumbers.push(array[i])
+        }
+    }
+
+    function compareNumeric (a, b){
+        if(a > b) return 1;
+        if(a === b) return 0;
+        if(a < b) return -1;
+    }
+
+    const resOddNumbers = oddNumbers.sort(compareNumeric);
+    const resEvenNumbers = evenNumbers.sort(compareNumeric);
+
+    return {resOddNumbers, resEvenNumbers};
+}
+
+// console.log(Array15([1,2,3,5,9,8,5,5,6,4]));
 
 // Minmax11. Дано целое число N и набор из N целых чисел. Найти номер последнего экстремального (то есть минимального или максимального) элемента из данного набора.
 
@@ -119,7 +143,7 @@ function Minmax11 (array) {
     return min > max ? min * -1 : max;
 }
 
-console.log(Minmax11([-105,-1,-2,3,4,5,6,9,87,55,66,99]))
+// console.log(Minmax11([-105,-1,-2,3,4,5,6,9,87,55,66,99]))
 
 // Minmax16. Дано целое число N и набор из N целых чисел. Найти количество элементов, расположенных перед первым минимальным элементом.
 //

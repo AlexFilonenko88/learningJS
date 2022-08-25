@@ -31,4 +31,29 @@ function invert(arr) {
     return arr.map(item => item * -1);
 }
 
-console.log(invert([1,2,3,4,5,6,7,8,9]))
+// console.log(invert([1,2,3,4,5,6,7,8,9]))
+
+function digitalRoot(n) {
+    if (n < 10) return n;
+
+    return digitalRoot(
+        n
+            .toString()
+            .split("")
+            .reduce((acc, c) => acc + Number(c), 0)
+    );
+}
+
+// console.log(digitalRoot(16))
+
+function spinWords(string) {
+    return string.split(" ").map(word => {
+        if(word.length > 4){
+            return word.split('').reverse().join('')
+        }
+        return word;
+    })
+        .join(' ');
+}
+
+// console.log(spinWords("welcff"))
