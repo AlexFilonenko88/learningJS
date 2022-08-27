@@ -107,16 +107,10 @@ function Array15 (array){
         }
     }
 
-    function compareNumeric (a, b){
-        if(a > b) return 1;
-        if(a === b) return 0;
-        if(a < b) return -1;
-    }
+    const resOddNumbers = oddNumbers.sort();
+    const resEvenNumbers = evenNumbers.sort(function (a, b){ return b - a});
 
-    const resOddNumbers = oddNumbers.sort(compareNumeric);
-    const resEvenNumbers = evenNumbers.sort(compareNumeric);
-
-    return {resOddNumbers, resEvenNumbers};
+    return resOddNumbers.concat(resEvenNumbers);
 }
 
 // console.log(Array15([1,2,3,5,9,8,5,5,6,4]));
@@ -146,8 +140,72 @@ function Minmax11 (array) {
 // console.log(Minmax11([-105,-1,-2,3,4,5,6,9,87,55,66,99]))
 
 // Minmax16. Дано целое число N и набор из N целых чисел. Найти количество элементов, расположенных перед первым минимальным элементом.
-//
+
+function Minmax16 (array) {
+    let min = Infinity;
+    let indexMinNumber = 0;
+
+    for(let i = 0; i < array.length; i++){
+        if(array[i] < min){
+            indexMinNumber = i;
+            min = array[i]
+        }
+    }
+
+    return indexMinNumber;
+}
+
+// console.log(Minmax16([-2,-1,1,2,3,8,9,6,5,88,44,-99,44144]))
+
 // Minmax17. Дано целое число N и набор из N целых чисел. Найти количество элементов, расположенных после последнего максимального элемента.
-//
+
+function Minmax17 (array) {
+    let max = -Infinity;
+    let indexMaxNumber = 0;
+
+    for(let i = array.length - 1; i >= 0; i--){
+        if(array[i] > max){
+            indexMaxNumber = array.length - 1 - i;
+            max = array[i];
+        }
+    }
+
+    return indexMaxNumber;
+}
+
+// console.log(Minmax17([-2,-1,1,2,3,8,9,6,5,88,44,-99]));
+
 // Array47 Дан целочисленный массив размера N. Найти количество различных элементов в данном массиве
 // цикл цикл (найти одинаковы элемент)
+// проверка на уникальность
+
+function Array47 (array){
+    const result = [];
+
+    //1
+    // for(let i = 0; i < array.length; i++){
+    //     if(!result.includes(array[i])){
+    //         result.push(array[i])
+    //     }
+    // }
+
+    //2
+    // for(let i = 0; i < array.length; i++){
+    //     let isDouble = false;
+    //     for(let j = 0; j < result.length; j++){
+    //         if(result[j] === array[i]){
+    //             isDouble = true;
+    //         }
+    //     }
+    //     if(!isDouble){
+    //         result.push(array[i]);
+    //     }
+    // }
+
+    //3
+    const setResult = new Set(array);
+
+    return [...setResult].length;
+}
+
+// console.log(Array47([-2,-1,1,2,0,3,3,8,9,6,5,88,44,-99]));
